@@ -7,8 +7,58 @@ public class Jogada {
 	private int idJogador2;
 	private int	movimento1;
 	private int movimento2;
+	
+	/**
+	 * 1 - aguardando jogador
+	 * 2 - aguardando 2 jogadas
+	 * 3 - aguardando 1 jogada
+	 * 4 - encerrada
+	 */
+	
 	private int status;
+	
+	/**
+	 * 1 - jogador 1
+	 * 2 - jogador 2
+	 * 3 - empate
+	 */
+	
 	private int vencedor;
+	
+	static final int PEDRA = 1;
+	static final int PAPEL = 2;
+	static final int TESOURA = 3;
+	
+	public void defineVencedor() {
+		
+		switch (movimento1) {
+		
+		case (PEDRA) : switch (movimento2) {	
+		case (PEDRA) : vencedor = 3;
+					break;
+		case (PAPEL) : vencedor = 2;
+					break;
+		default: vencedor = 1;
+		} break;
+		
+		case (PAPEL) : switch (movimento2) {
+		case (PAPEL) : vencedor = 3;
+			break;
+		case (PEDRA) : vencedor = 1;
+			break;
+		default: vencedor = 2;
+		} break;
+		
+		case (TESOURA) : switch (movimento2) {
+		case (TESOURA) : vencedor = 3;
+			break;
+		case (PAPEL) : vencedor = 1;
+			break;
+		default: vencedor = 2;
+		}
+		
+		}
+	}
 	
 	
 	public int getIdJogada() {
