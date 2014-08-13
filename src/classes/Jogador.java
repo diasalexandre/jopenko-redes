@@ -1,16 +1,36 @@
 package classes;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class Jogador {
 
 	private int idJogador;
-	private int nome;
-	private Jogada jogada;
+	private String nome;
+	private Socket jogo;
+	private ObjectOutputStream output;
+	private ObjectInputStream input;
 	
-	public ArrayList<Jogada> getJogadas() {
+	public void novoJogo(Jogador jogador) throws UnknownHostException, IOException {
 		
-		return jogada.getJogadasJogador(idJogador);
+		jogo = new Socket("localhost", 15333);
+		
+		output = new ObjectOutputStream(jogo.getOutputStream());
+		output.flush();
+	
+		input = new ObjectInputStream(jogo.getInputStream());
+		
+		
+		
+	}
+	
+	public void fazerJogada(int movimento) {
+		
+		
 		
 	}
 	
@@ -20,10 +40,10 @@ public class Jogador {
 	public void setIdJogador(int idJogador) {
 		this.idJogador = idJogador;
 	}
-	public int getNome() {
+	public String getNome() {
 		return nome;
 	}
-	public void setNome(int nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	
