@@ -2,7 +2,7 @@ package classes;
 
 import java.util.ArrayList;
 
-public class Jogada {
+public class Jogada implements Runnable {
 
 	private int idJogada;
 	private int idJogador1;
@@ -27,9 +27,9 @@ public class Jogada {
 	
 	private int vencedor;
 	
-	static final int PEDRA = 1;
-	static final int PAPEL = 2;
-	static final int TESOURA = 3;
+	public static final int PEDRA = 1;
+	public static final int PAPEL = 2;
+	public static final int TESOURA = 3;
 	
 	public void defineVencedor() {
 		
@@ -60,6 +60,12 @@ public class Jogada {
 		}
 		
 		}
+	}
+	
+	public void run() {
+	
+		
+		
 	}
 	
 	
