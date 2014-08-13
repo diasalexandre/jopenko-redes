@@ -16,10 +16,17 @@ import classes.Jogador;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.net.UnknownHostException;
 
 public class MainJogo {
 
 	private JFrame frame;
+	private Jogador jogador;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -53,7 +60,7 @@ public class MainJogo {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		Jogador jogador = new Jogador();
+		jogador = new Jogador();
 		
 		jogador.setIdJogador(1);
 		jogador.setNome("Guilherme Carneiro");
@@ -81,6 +88,22 @@ public class MainJogo {
 		panel.add(btnVerJogosEm, gbc_btnVerJogosEm);
 		
 		JButton btnNovoJogo = new JButton("Novo Jogo");
+		btnNovoJogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					FrameEspera jogoframe = new FrameEspera(jogador);
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		GridBagConstraints gbc_btnNovoJogo = new GridBagConstraints();
 		gbc_btnNovoJogo.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNovoJogo.gridx = 5;
