@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.ArrayList;
+
 public class Jogada {
 
 	private int idJogada;
@@ -60,6 +62,18 @@ public class Jogada {
 		}
 	}
 	
+	
+	public ArrayList<Jogada> getJogadasJogador(int idJogador){
+		
+		ArrayList<Jogada> jogadas = new ArrayList<Jogada>();
+		
+		/**
+		 * @todo implementar
+		 */
+		
+		return jogadas;
+		
+	}
 	
 	public int getIdJogada() {
 		return idJogada;

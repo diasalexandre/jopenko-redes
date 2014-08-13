@@ -1,9 +1,18 @@
 package classes;
 
+import java.util.ArrayList;
+
 public class Jogador {
 
 	private int idJogador;
 	private int nome;
+	private Jogada jogada;
+	
+	public ArrayList<Jogada> getJogadas() {
+		
+		return jogada.getJogadasJogador(idJogador);
+		
+	}
 	
 	public int getIdJogador() {
 		return idJogador;
